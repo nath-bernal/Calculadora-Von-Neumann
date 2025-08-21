@@ -1,0 +1,159 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.unidad-control, .memoria, .alu {
+    border: 2px solid #333;
+    padding: 10px;
+    width: 30%;
+    background-color: #f9f9f9;
+    position: relative;
+    text-align: center;
+    margin-right: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.unidad-control {
+    background-color: #e4c3e9;
+}
+
+.memoria {
+    background-color: #b6cbec;
+}
+
+.alu {
+    background-color: #b9e8ec;
+}
+
+.registro {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #000;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100px;
+    font-size: 18px;
+}
+
+.decodificador {
+    height: 100px;
+    width: 100px;
+    font-size: 48px;
+    border: 2px solid #000;
+    margin: 10px auto;
+}
+
+.destacado {
+    background-color: yellow !important;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: block;
+    margin: 10px auto;
+}
+
+.destacado {
+    background-color: yellow !important;
+    transition: background-color 0.3s ease;
+}
+
+.simulator-wrapper {
+    font-family: 'Nunito', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+}
+
+.simulator-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.simulator-sections {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.simulator-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.simulator-display {
+    font-size: 18px;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.simulator-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.simulator-table th, .simulator-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.simulator-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.simulator-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.simulator-button:hover {
+    background-color: #0056b3;
+}
