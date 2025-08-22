@@ -1,11 +1,10 @@
 import React from 'react';
-import { Tabs } from './components/Tabs';
-import SimulatorTwo from './pages/SimulatorTwo';
+import MejoraSimulador from './pages/MejoraSimulador';
 
 const App = () => {
   return (
     <div>
-      <SimulatorTwo />
+      <MejoraSimulador />
     </div>
   );
 };

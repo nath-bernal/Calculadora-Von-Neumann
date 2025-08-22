@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
 function numberToBinaryWithNBits(number, n) {
     return number.toString(2).padStart(n, '0').slice(-n);
 }
 
-// Memoria inicial (igual que en Simulador.jsx)
+// Memoria inicial
 const memoriaInicial = [
     [0, 4], // 0000
     [0, 5], // 0001
@@ -16,7 +17,7 @@ const memoriaInicial = [
     [0, 0], // 0111
 ];
 
-function SimulatorTwo() {
+function MejoraSimulador() {
     // Estados principales
     const [memoria, setMemoria] = useState([...memoriaInicial]);
     const [contador, setContador] = useState(0);
@@ -27,8 +28,12 @@ function SimulatorTwo() {
     const [acumulador, setAcumulador] = useState(0);
     const [entrada, setEntrada] = useState(0);
     const [destacados, setDestacados] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
-    // Path de pasos igual al Simulador clásico
+    const handleShow = () => setShowModal(true);
+    const handleClose = () => setShowModal(false);
+
+
     const pasos = [
         // 0: registroDirecciones = contador; destacar contador-programa y registro-direcciones
         () => {
@@ -109,7 +114,7 @@ function SimulatorTwo() {
 
     // Utilidad para destacar
     const getHighlight = (key) => destacados.includes(key) ? {
-        boxShadow: '0 0 0 3px #ff9800',
+        boxShadow: '0 0 0 3px #eae70eff',
         background: '#fffde7'
     } : {};
 
@@ -184,20 +189,20 @@ function SimulatorTwo() {
                     {/* ALU */}
                     <div style={{
                         flex: 1,
-                        background: '#e8f5e9',
-                        border: '2px solid #81c784',
+                        background: '#deacf4ff',
+                        border: '2px solid #873089ff',
                         borderRadius: '12px',
                         padding: '18px',
                         boxSizing: 'border-box',
                         minWidth: '220px'
                     }}>
-                        <h3 style={{margin: 0, color: '#388e3c'}}>Unidad aritmético-lógica (ALU)</h3>
+                        <h3 style={{margin: 0, color: '#47265bff'}}>Unidad aritmético-lógica (ALU)</h3>
                         <div style={{marginTop: '18px'}}>
                             <div>
                                 <span>Acumulador</span>
                                 <div style={{
                                     background: '#fff',
-                                    border: '1px solid #81c784',
+                                    border: '1px solid #82328dff',
                                     borderRadius: '6px',
                                     padding: '4px 12px',
                                     display: 'inline-block',
@@ -209,7 +214,7 @@ function SimulatorTwo() {
                                 <span>R. Entrada</span>
                                 <div style={{
                                     background: '#fff',
-                                    border: '1px solid #81c784',
+                                    border: '1px solid #bd73ddff',
                                     borderRadius: '6px',
                                     padding: '4px 12px',
                                     display: 'inline-block',
@@ -222,20 +227,20 @@ function SimulatorTwo() {
                 </div>
                 {/* Memoria */}
                 <div style={{
-                    background: '#fff3e0',
-                    border: '2px solid #ffb74d',
+                    background: '#f8cef1ff',
+                    border: '2px solid #d05bbaff',
                     borderRadius: '12px',
                     padding: '18px',
                     boxSizing: 'border-box',
                     marginTop: '0'
                 }}>
-                    <h3 style={{margin: 0, color: '#f57c00'}}>Memoria</h3>
+                    <h3 style={{margin: 0, color: '#a11a86ff'}}>Memoria</h3>
                     <div style={{display: 'flex', gap: '32px', marginTop: '18px', alignItems: 'flex-start'}}>
                         <div>
                             <span>R. Direcciones</span>
                             <div style={{
                                 background: '#fff',
-                                border: '1px solid #ffb74d',
+                                border: '1px solid #811569ff',
                                 borderRadius: '6px',
                                 padding: '4px 12px',
                                 display: 'inline-block',
@@ -247,7 +252,7 @@ function SimulatorTwo() {
                             <span>R. Datos</span>
                             <div style={{
                                 background: '#fff',
-                                border: '1px solid #ffb74d',
+                                border: '1px solid #a6227aff',
                                 borderRadius: '6px',
                                 padding: '4px 12px',
                                 display: 'inline-block',
@@ -268,26 +273,26 @@ function SimulatorTwo() {
                             }}>
                                 <thead>
                                     <tr>
-                                        <th style={{border: '1px solid #ffb74d', padding: '2px 8px'}}>Dir.</th>
-                                        <th style={{border: '1px solid #ffb74d', padding: '2px 8px'}}>Contenido</th>
+                                        <th style={{border: '1px solid #de46c5ff', padding: '2px 8px'}}>Dir.</th>
+                                        <th style={{border: '1px solid #d05bbaff', padding: '2px 8px'}}>Contenido</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {memoria.map((dato, idx) => (
                                         <tr key={idx}>
                                             <td style={{
-                                                border: '1px solid #ffb74d',
+                                                border: '1px solid #ac318dff',
                                                 padding: '2px 8px',
                                                 ...(destacados.includes(`memoria-${idx}`) ? {
-                                                    background: '#ffe0b2',
+                                                    background: '#f3f350ff',
                                                     fontWeight: 'bold'
                                                 } : {})
                                             }}>{numberToBinaryWithNBits(idx, 4)}</td>
                                             <td style={{
-                                                border: '1px solid #ffb74d',
+                                                border: '1px solid #b63090ff',
                                                 padding: '2px 8px',
                                                 ...(destacados.includes(`memoria-${idx}`) ? {
-                                                    background: '#ffe0b2',
+                                                    background: '#f3f350ff',
                                                     fontWeight: 'bold'
                                                 } : {})
                                             }}>
@@ -327,8 +332,73 @@ function SimulatorTwo() {
                     </button>
                 </div>
             </div>
+            {/* <button 
+                className="btn btn-primary rounded-circle" 
+                style={{ position: 'fixed', bottom: '20px', right: '20px', width: '60px', height: '60px' }} 
+                onClick={handleShow}
+            >
+                +
+            </button> */}
+
+            {/* Modal */}
+            <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Pipelines</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <h5 style={{textAlign: 'center'}}><strong>(3+5)×(2+4)</strong></h5>
+                    <br/>
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Ciclo</th>
+                                <th>Fetch (Memoria → Unidad de Control)</th>
+                                <th>Decode (Unidad de Control)</th>
+                                <th>Execute (ALU)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Obtener (3+5)</td>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Obtener (2+4)</td>
+                                <td>Decodificar (3+5)</td>
+                                <td> ---- </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Obtener X</td>
+                                <td>Decodificar (2+4)</td>
+                                <td>Ejecutar (3+5)</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td> ---- </td>
+                                <td>Decodificar X</td>
+                                <td> Ejecutar (2+4)</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td> ---- </td>
+                                <td> ---- </td>
+                                <td>Ejecutar 8 × 6</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }
 
-export default SimulatorTwo;
+export default MejoraSimulador;
