@@ -97,6 +97,7 @@ function MejoraSimulador() {
         } else {
             setPaso(0);
             setDestacados([]);
+            setShowModal(true); // Mostrar el pop-up al finalizar
         }
     };
 
@@ -322,9 +323,9 @@ function MejoraSimulador() {
                     <button onClick={reiniciar} style={{
                         padding: '10px 24px',
                         borderRadius: '6px',
-                        border: '1px solid #f57c00',
+                        border: '1px solid #2ac2a1ff',
                         background: '#fff',
-                        color: '#f57c00',
+                        color: '#417f78ff',
                         fontWeight: 'bold',
                         cursor: 'pointer'
                     }}>
@@ -343,57 +344,14 @@ function MejoraSimulador() {
             {/* Modal */}
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Pipelines</Modal.Title>
+                    <Modal.Title>¡Operación finalizada!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <h5 style={{textAlign: 'center'}}><strong>(3+5)×(2+4)</strong></h5>
-                    <br/>
-                    <table className="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Ciclo</th>
-                                <th>Fetch (Memoria → Unidad de Control)</th>
-                                <th>Decode (Unidad de Control)</th>
-                                <th>Execute (ALU)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Obtener (3+5)</td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Obtener (2+4)</td>
-                                <td>Decodificar (3+5)</td>
-                                <td> ---- </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Obtener X</td>
-                                <td>Decodificar (2+4)</td>
-                                <td>Ejecutar (3+5)</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td> ---- </td>
-                                <td>Decodificar X</td>
-                                <td> Ejecutar (2+4)</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                                <td>Ejecutar 8 × 6</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <p>¡La calculadora ha terminado la operación exitosamente!.</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Cerrar
                     </Button>
                 </Modal.Footer>
             </Modal>
