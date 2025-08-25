@@ -118,11 +118,34 @@ function MejoraSimulador() {
         boxShadow: '0 0 0 3px #eae70eff',
         background: '#fffde7'
     } : {};
-
+    // Estilos responsivos
+    const responsiveStyles = `
+        @media (max-width: 900px) {
+            .sim-card {
+                width: 98vw !important;
+                padding: 12px !important;
+            }
+            .sim-row {
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+            .sim-block {
+                min-width: unset !important;
+                width: 100% !important;
+            }
+            .sim-mem-table th, .sim-mem-table td {
+                font-size: 12px !important;
+                padding: 2px 4px !important;
+            }
+            .sim-title {
+                font-size: 1.2rem !important;
+            }
+        }
+    `;
     return (
         <div style={{
             minHeight: '100vh',
-            background: '#f4f4f9',
+            background: '#f2eeeeff',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
@@ -139,7 +162,15 @@ function MejoraSimulador() {
                 flexDirection: 'column',
                 gap: '32px'
             }}>
-                {/* Bloques superiores */}
+                 <h1 style={{
+                    color: '#000000ff',
+                    marginBottom: '32px',
+                    fontWeight: 'bold',
+                    letterSpacing: '1px',
+                    textShadow: '0 2px 8px #0002'
+                }}>
+                    Calculadora Operativa Von Neumann
+                </h1>
                 <div style={{
                     display: 'flex',
                     justifyContent: 'space-between',
