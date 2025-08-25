@@ -118,8 +118,36 @@ function MejoraSimulador() {
         boxShadow: '0 0 0 3px #eae70eff',
         background: '#fffde7'
     } : {};
-    // Estilos responsivos
+ // Estilos responsivos
     const responsiveStyles = `
+        .sim-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+            padding: 32px;
+            width: 800px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .sim-title {
+            color: #000;
+            margin-bottom: 32px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 8px #0002;
+            font-size: 2rem;
+            text-align: center;
+        }
+        .sim-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+        }
+        .sim-block {
+            flex: 1;
+            min-width: 220px;
+        }
         @media (max-width: 900px) {
             .sim-card {
                 width: 98vw !important;
@@ -133,12 +161,20 @@ function MejoraSimulador() {
                 min-width: unset !important;
                 width: 100% !important;
             }
-            .sim-mem-table th, .sim-mem-table td {
-                font-size: 12px !important;
-                padding: 2px 4px !important;
-            }
             .sim-title {
                 font-size: 1.2rem !important;
+            }
+        }
+        @media (max-width: 600px) {
+            .sim-card {
+                width: 100vw !important;
+                padding: 4px !important;
+            }
+            .sim-title {
+                font-size: 1rem !important;
+            }
+            .sim-row {
+                gap: 6px !important;
             }
         }
     `;
@@ -148,43 +184,33 @@ function MejoraSimulador() {
             background: '#f2eeeeff',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'center',
+            justifyContent: 'flex-start',
             alignItems: 'center',
             padding: '40px 0'
         }}>
-            <div style={{
-                background: '#fff',
-                borderRadius: '18px',
-                boxShadow: '0 6px 24px rgba(0,0,0,0.10)',
-                padding: '32px',
-                width: '800px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '32px'
+            <style>{responsiveStyles}</style>
+            <div className="sim-card">
+                <h1 className="sim-title" style={{
+                color: '#000',
+                fontWeight: 'bold',
+                letterSpacing: '1px',
+                textShadow: '0 2px 8px #0002',
+                fontSize: '2rem',
+                textAlign: 'center',
+                marginTop: '5px',
+                marginBottom: '5px',
+                width: '100%'
             }}>
-                 <h1 style={{
-                    color: '#000000ff',
-                    marginBottom: '32px',
-                    fontWeight: 'bold',
-                    letterSpacing: '1px',
-                    textShadow: '0 2px 8px #0002'
-                }}>
-                    Calculadora Operativa Von Neumann
-                </h1>
-                <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    gap: '24px'
-                }}>
+                Calculadora Operativa Von Neumann
+            </h1>
+                <div className="sim-row">
                     {/* Unidad de Control */}
-                    <div style={{
-                        flex: 1,
+                    <div className="sim-block" style={{
                         background: '#e3f2fd',
                         border: '2px solid #90caf9',
                         borderRadius: '12px',
                         padding: '18px',
-                        boxSizing: 'border-box',
-                        minWidth: '220px'
+                        boxSizing: 'border-box'
                     }}>
                         <h3 style={{margin: 0, color: '#1976d2'}}>Unidad de control</h3>
                         <div style={{marginTop: '18px'}}>
@@ -219,14 +245,12 @@ function MejoraSimulador() {
                         </div>
                     </div>
                     {/* ALU */}
-                    <div style={{
-                        flex: 1,
+                    <div className="sim-block" style={{
                         background: '#deacf4ff',
                         border: '2px solid #873089ff',
                         borderRadius: '12px',
                         padding: '18px',
-                        boxSizing: 'border-box',
-                        minWidth: '220px'
+                        boxSizing: 'border-box'
                     }}>
                         <h3 style={{margin: 0, color: '#47265bff'}}>Unidad aritmético-lógica (ALU)</h3>
                         <div style={{marginTop: '18px'}}>
@@ -258,7 +282,7 @@ function MejoraSimulador() {
                     </div>
                 </div>
                 {/* Memoria */}
-                <div style={{
+                <div className="sim-block" style={{
                     background: '#f8cef1ff',
                     border: '2px solid #d05bbaff',
                     borderRadius: '12px',
@@ -267,7 +291,7 @@ function MejoraSimulador() {
                     marginTop: '0'
                 }}>
                     <h3 style={{margin: 0, color: '#a11a86ff'}}>Memoria</h3>
-                    <div style={{display: 'flex', gap: '32px', marginTop: '18px', alignItems: 'flex-start'}}>
+                    <div style={{display: 'flex', gap: '32px', marginTop: '18px', alignItems: 'flex-start', flexWrap: 'wrap'}}>
                         <div>
                             <span>R. Direcciones</span>
                             <div style={{
@@ -295,13 +319,14 @@ function MejoraSimulador() {
                                 {numberToBinaryWithNBits(registroDatos[1], 4)}
                             </div>
                         </div>
-                        <div>
+                        <div style={{minWidth: '160px'}}>
                             <span>Tabla de memoria</span>
                             <table style={{
                                 marginTop: '8px',
                                 borderCollapse: 'collapse',
                                 background: '#fff',
-                                fontSize: '14px'
+                                fontSize: '14px',
+                                width: '100%'
                             }}>
                                 <thead>
                                     <tr>
@@ -339,7 +364,7 @@ function MejoraSimulador() {
                     </div>
                 </div>
                 {/* Botones funcionales */}
-                <div style={{marginTop: '8px', width: '100%', display: 'flex', justifyContent: 'center', gap: '16px'}}>
+                <div style={{marginTop: '8px', width: '100%', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap'}}>
                     <button onClick={continuar} style={{
                         padding: '10px 24px',
                         borderRadius: '6px',
@@ -347,7 +372,8 @@ function MejoraSimulador() {
                         background: '#fff',
                         color: '#007bff',
                         fontWeight: 'bold',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        marginBottom: '8px'
                     }}>
                         Continuar
                     </button>
@@ -358,21 +384,13 @@ function MejoraSimulador() {
                         background: '#fff',
                         color: '#417f78ff',
                         fontWeight: 'bold',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        marginBottom: '8px'
                     }}>
                         Reiniciar
                     </button>
                 </div>
             </div>
-            {/* <button 
-                className="btn btn-primary rounded-circle" 
-                style={{ position: 'fixed', bottom: '20px', right: '20px', width: '60px', height: '60px' }} 
-                onClick={handleShow}
-            >
-                +
-            </button> */}
-
-            {/* Modal */}
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>¡Operación finalizada!</Modal.Title>
