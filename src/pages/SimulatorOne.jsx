@@ -139,63 +139,63 @@ function SimulatorOne() {
                 +
             </button>
 
-            {/* Modal */}
-            <Modal show={showModal} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Pipelines</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <h5 style={{textAlign: 'center'}}><strong>(3+5)×(2+4)</strong></h5>
-                    <br/>
-                    <table className="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Ciclo</th>
-                                <th>Fetch (Memoria → Unidad de Control)</th>
-                                <th>Decode (Unidad de Control)</th>
-                                <th>Execute (ALU)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Obtener (3+5)</td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Obtener (2+4)</td>
-                                <td>Decodificar (3+5)</td>
-                                <td> ---- </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Obtener X</td>
-                                <td>Decodificar (2+4)</td>
-                                <td>Ejecutar (3+5)</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td> ---- </td>
-                                <td>Decodificar X</td>
-                                <td> Ejecutar (2+4)</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td> ---- </td>
-                                <td> ---- </td>
-                                <td>Ejecutar 8 × 6</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </Modal>
+        {/* Modal */}
+        <Modal show={showModal} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>Pipelines</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <h5 style={{textAlign: 'center'}}><strong>(7+2)×(4+1)</strong></h5>
+                <br/>
+                <table className="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ciclo</th>
+                            <th>Fetch (Memoria → Unidad de Control)</th>
+                            <th>Decode (Unidad de Control)</th>
+                            <th>Execute (ALU)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Obtener (7+2)</td>
+                            <td> ---- </td>
+                            <td> ---- </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Obtener (4+1)</td>
+                            <td>Decodificar (7+2)</td>
+                            <td> ---- </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Obtener X</td>
+                            <td>Decodificar (4+1)</td>
+                            <td>Ejecutar (7+2)</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td> ---- </td>
+                            <td>Decodificar X</td>
+                            <td> Ejecutar (4+1)</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td> ---- </td>
+                            <td> ---- </td>
+                            <td>Ejecutar 9 × 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+            </Modal.Footer>
+        </Modal>
         </>
     );
 }
