@@ -118,7 +118,7 @@ function MejoraSimulador() {
         boxShadow: '0 0 0 3px #eae70eff',
         background: '#fffde7'
     } : {};
- // Estilos responsivos
+    // Estilos responsivos
     const responsiveStyles = `
         .sim-card {
             background: #fff;
@@ -191,18 +191,18 @@ function MejoraSimulador() {
             <style>{responsiveStyles}</style>
             <div className="sim-card">
                 <h1 className="sim-title" style={{
-                color: '#000',
-                fontWeight: 'bold',
-                letterSpacing: '1px',
-                textShadow: '0 2px 8px #0002',
-                fontSize: '2rem',
-                textAlign: 'center',
-                marginTop: '5px',
-                marginBottom: '5px',
-                width: '100%'
-            }}>
-                Calculadora Operativa Von Neumann
-            </h1>
+                    color: '#000',
+                    fontWeight: 'bold',
+                    letterSpacing: '1px',
+                    textShadow: '0 2px 8px #0002',
+                    fontSize: '2rem',
+                    textAlign: 'center',
+                    marginTop: '5px',
+                    marginBottom: '5px',
+                    width: '100%'
+                }}>
+                    Calculadora Operativa Von Neumann
+                </h1>
                 <div className="sim-row">
                     {/* Unidad de Control */}
                     <div className="sim-block" style={{
@@ -212,10 +212,10 @@ function MejoraSimulador() {
                         padding: '18px',
                         boxSizing: 'border-box'
                     }}>
-                        <h3 style={{margin: 0, color: '#1976d2'}}>Unidad de control</h3>
-                        <div style={{marginTop: '18px'}}>
+                        <h3 style={{ margin: 0, color: '#1976d2' }}>Unidad de control</h3>
+                        <div style={{ marginTop: '18px' }}>
                             <div>Decodificador</div>
-                            <div style={{margin: '10px 0'}}>
+                            <div style={{ margin: '10px 0' }}>
                                 <span>Cont. Programa</span>
                                 <div style={{
                                     background: '#fff',
@@ -252,8 +252,8 @@ function MejoraSimulador() {
                         padding: '18px',
                         boxSizing: 'border-box'
                     }}>
-                        <h3 style={{margin: 0, color: '#47265bff'}}>Unidad aritmético-lógica (ALU)</h3>
-                        <div style={{marginTop: '18px'}}>
+                        <h3 style={{ margin: 0, color: '#47265bff' }}>Unidad aritmético-lógica (ALU)</h3>
+                        <div style={{ marginTop: '18px' }}>
                             <div>
                                 <span>Acumulador</span>
                                 <div style={{
@@ -266,7 +266,7 @@ function MejoraSimulador() {
                                     ...getHighlight('acumulador')
                                 }}>{numberToBinaryWithNBits(acumulador, 8)}</div>
                             </div>
-                            <div style={{marginTop: '10px'}}>
+                            <div style={{ marginTop: '10px' }}>
                                 <span>R. Entrada</span>
                                 <div style={{
                                     background: '#fff',
@@ -290,8 +290,8 @@ function MejoraSimulador() {
                     boxSizing: 'border-box',
                     marginTop: '0'
                 }}>
-                    <h3 style={{margin: 0, color: '#a11a86ff'}}>Memoria</h3>
-                    <div style={{display: 'flex', gap: '32px', marginTop: '18px', alignItems: 'flex-start', flexWrap: 'wrap'}}>
+                    <h3 style={{ margin: 0, color: '#a11a86ff' }}>Memoria</h3>
+                    <div style={{ display: 'flex', gap: '32px', marginTop: '18px', alignItems: 'flex-start', flexWrap: 'wrap' }}>
                         <div>
                             <span>R. Direcciones</span>
                             <div style={{
@@ -319,7 +319,7 @@ function MejoraSimulador() {
                                 {numberToBinaryWithNBits(registroDatos[1], 4)}
                             </div>
                         </div>
-                        <div style={{minWidth: '160px'}}>
+                        <div style={{ minWidth: '160px' }}>
                             <span>Tabla de memoria</span>
                             <table style={{
                                 marginTop: '8px',
@@ -330,8 +330,8 @@ function MejoraSimulador() {
                             }}>
                                 <thead>
                                     <tr>
-                                        <th style={{border: '1px solid #de46c5ff', padding: '2px 8px'}}>Dir.</th>
-                                        <th style={{border: '1px solid #d05bbaff', padding: '2px 8px'}}>Contenido</th>
+                                        <th style={{ border: '1px solid #de46c5ff', padding: '2px 8px' }}>Dir.</th>
+                                        <th style={{ border: '1px solid #d05bbaff', padding: '2px 8px' }}>Contenido</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -364,7 +364,7 @@ function MejoraSimulador() {
                     </div>
                 </div>
                 {/* Botones funcionales */}
-                <div style={{marginTop: '8px', width: '100%', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap'}}>
+                <div style={{ marginTop: '8px', width: '100%', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
                     <button onClick={continuar} style={{
                         padding: '10px 24px',
                         borderRadius: '6px',
@@ -390,6 +390,72 @@ function MejoraSimulador() {
                         Reiniciar
                     </button>
                 </div>
+                {/* Circular Button */}
+                {/* <button
+                    className="btn btn-primary rounded-circle"
+                    style={{ position: 'fixed', bottom: '20px', right: '20px', width: '60px', height: '60px' }}
+                    onClick={handleShow}
+                >
+                    +
+                </button> */}
+
+                {/* Modal */}
+                <Modal onHide={handleClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Pipelines</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <h5 style={{ textAlign: 'center' }}><strong>(7+2)×(4+1)</strong></h5>
+                        <br />
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Ciclo</th>
+                                    <th>Fetch (Memoria → Unidad de Control)</th>
+                                    <th>Decode (Unidad de Control)</th>
+                                    <th>Execute (ALU)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Obtener (7+2)</td>
+                                    <td> ---- </td>
+                                    <td> ---- </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Obtener (4+1)</td>
+                                    <td>Decodificar (7+2)</td>
+                                    <td> ---- </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Obtener X</td>
+                                    <td>Decodificar (4+1)</td>
+                                    <td>Ejecutar (7+2)</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td> ---- </td>
+                                    <td>Decodificar X</td>
+                                    <td> Ejecutar (4+1)</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td> ---- </td>
+                                    <td> ---- </td>
+                                    <td>Ejecutar 9 × 5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
             </div>
             <Modal show={showModal} onHide={handleClose}>
                 <Modal.Header closeButton>
